@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/list" class="brand-link">To-Do Application</a>
+  <span class="spacer"></span>
+  <button mat-button class="button" routerLink="/add">Add Item</button>
+  <button mat-button class="button" routerLink="/bookmark">Bookmarked</button>
+</mat-toolbar>
+
+<div class="content">
+  <div class="form-container">
+    <form (ngSubmit)="onSave()" #itemForm="ngForm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="item.name" name="name" required>
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="item.dateOfBirth" name="dateOfBirth" placeholder="Date of Birth" required>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div>
+        <label>Gender:</label>
+        <mat-radio-group [(ngModel)]="item.gender" name="gender">
+          <mat-radio-button value="Male">Male</mat-radio-button>
+          <mat-radio-button value="Female">Female</mat-radio-button>
+          <mat-radio-button value="Other">Other</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </form>
+  </div>
+</div>

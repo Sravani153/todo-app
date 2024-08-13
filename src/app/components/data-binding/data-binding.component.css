@@ -1,40 +1,14 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 15;
-  padding: 0;
-  background-color: #f8f9fa;
-}
-
-nav {
-  background-color: #0e0d0e;
-  padding: 15px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-nav a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  padding: 20px;
-}
-
 h2 {
-  color: #343a40;
+  color: #007bff;
+  text-align: center;
 }
 
 h3 {
-  color: #6c757d;
+  color: #28a745;
 }
 
 p {
-  font-size: 14px;
-  color: #495057;
+  font-size: 16px;
 }
 
 input, button {
@@ -70,6 +44,3 @@ input[type="text"], input[type="number"], input[type="date"], input[type="passwo
 button[type="button"] {
   margin-left: 10px;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

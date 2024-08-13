@@ -1,0 +1,25 @@
+.bookmark-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+mat-toolbar {
+  display: flex;
+}
+.bookmark-icon:hover {
+  transform: scale(1.2);
+}
+
+.bookmark-icon.bookmarked {
+  color: gold;
+}
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left:5px;
+}
+
+.brand-link:hover {
+  text-decoration: underline;
+}

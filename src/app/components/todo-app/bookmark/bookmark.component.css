@@ -1,0 +1,15 @@
+mat-toolbar {
+  display: flex;
+}
+
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left:5px;
+}
+
+.brand-link:hover {
+  text-decoration: underline;
+}

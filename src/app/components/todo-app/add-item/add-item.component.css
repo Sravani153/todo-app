@@ -1,0 +1,62 @@
+mat-toolbar {
+  display: flex;
+}
+.brand-link {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 20px;
+  margin-left:5px;
+}
+
+.brand-link:hover {
+  text-decoration: underline;
+}
+
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  padding: 16px;
+}
+
+.form-container {
+  max-width: 600px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.mat-form-field:nth-of-type(1) {
+  margin-bottom: 24px;
+}
+
+.mat-datepicker-toggle {
+  margin-left: 8px;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+mat-checkbox {
+  display: block;
+  margin: 16px 0;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+}
