@@ -10,12 +10,14 @@ import { LifecycleComponent } from './components/lifecycle/lifecycle.component';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
 import { ChildComponent } from './components/child/child.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { ReactiveFormDisplayComponent } from './components/reactive-form-display/reactive-form-display.component';
+
 import { MaskPipePipe } from './pipes/mask-pipe.pipe';
 import { CustomPipe } from './pipes/custom.pipe';
+
 import { ItemListComponent } from './components/todo-app/item-list/item-list.component';
 import { AddItemComponent } from './components/todo-app/add-item/add-item.component';
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
