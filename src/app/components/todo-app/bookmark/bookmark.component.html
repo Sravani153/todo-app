@@ -2,8 +2,9 @@
   <a mat-button  class="brand-link">To-Do Application</a>
   <span class="spacer"></span>
   <button mat-button class="button" routerLink="/list">Item List</button>
-  <button mat-button class="button" routerLink="/add">Add Item</button>
-</mat-toolbar>
+  <button mat-fab class="custom-fab" routerLink="/add">
+    <mat-icon>add</mat-icon>
+  </button></mat-toolbar>
 
 <div class="content">
   <table mat-table [dataSource]="bookmarkedItems" class="mat-elevation-z8">

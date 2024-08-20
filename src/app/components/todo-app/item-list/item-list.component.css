@@ -19,13 +19,14 @@ mat-toolbar {
 }
 
 .brand-link:hover {
-  color: #ffca28;
+  color: #0f0e0e;
 }
 
 .button {
   font-weight: 500;
-  color: #ffca28;
+  color: #0e0e0e;
   transition: background-color 0.3s ease;
+  margin-right: 16px;
 }
 
 .button:hover {
@@ -34,6 +35,30 @@ mat-toolbar {
 
 .spacer {
   flex: 1;
+}
+
+mat-fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  padding: 0 50px;
+}
+
+mat-fab mat-icon {
+  font-size: 24px;
+}
+
+.custom-fab {
+  background-color: #fff;
+  color: #2f14c8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.custom-fab:hover {
+  background-color: #232dee;
 }
 
 /* Content Area */
@@ -62,11 +87,11 @@ mat-form-field {
 /* Clear Icon Styles */
 mat-icon[matSuffix] {
   cursor: pointer;
-  color: rgba(0, 0, 0, 0.54); /* Default color */
+  color: rgba(0, 0, 0, 0.54);
 }
 
 mat-icon[matSuffix].mat-icon-button:hover {
-  color: rgba(0, 0, 0, 0.87); /* Color on hover */
+  color: rgba(0, 0, 0, 0.87);
 }
 
 /* Table Styles */
@@ -100,12 +125,12 @@ table.mat-elevation-z8 {
 }
 
 .bookmark-icon.bookmarked {
-  color: gold;
+  color: rgb(40, 67, 164);
 }
 
 .bookmark-icon:hover {
   transform: scale(1.3);
-  color: #ffc107;
+  color: rgb(40, 67, 164);
 }
 
 /* Action Button Styles */

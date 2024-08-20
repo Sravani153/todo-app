@@ -17,15 +17,16 @@ mat-toolbar {
   margin-left: 10px;
   transition: color 0.3s ease, text-decoration 0.3s ease;
 }
-
 .brand-link:hover {
-  color: #ffca28;
+  color: #0f0e0e;
 }
 
 .button {
   font-weight: 500;
-  color: #ffca28;
+  color: #0e0e0e;
   transition: background-color 0.3s ease;
+  margin-right: 16px;
+
 }
 
 .button:hover {
@@ -56,6 +57,17 @@ mat-toolbar {
   padding: 32px;
   transition: transform 0.3s ease;
 }
+
+.form-container button[type="submit"] {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+.form-container button[type="submit"]:disabled {
+  background-color: #cccccc;
+  color: #666666;
+}
+
 
 .form-container:hover {
   transform: translateY(-5px);
