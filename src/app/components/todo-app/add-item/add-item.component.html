@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <a mat-button  class="brand-link">To-Do Application</a>
+  <a mat-button class="brand-link">To-Do Application</a>
   <span class="spacer"></span>
   <button mat-button class="button" routerLink="/list">Item List</button>
   <button mat-button class="button" routerLink="/bookmark">Bookmarked</button>
@@ -38,8 +38,31 @@
           <mat-radio-button value="Other">Other</mat-radio-button>
         </mat-radio-group>
         <mat-error *ngIf="itemForm.get('gender')?.hasError('required')">
-          Gender is required.
         </mat-error>
+      </div>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+        <mat-error *ngIf="itemForm.get('email')?.hasError('required')">
+          Email is required.
+        </mat-error>
+        <mat-error *ngIf="itemForm.get('email')?.hasError('email')">
+          Enter a valid email address.
+        </mat-error>
+      </mat-form-field>
+
+      <div formArrayName="phoneNumbers">
+        <div *ngFor="let phone of phoneNumbers.controls; let i = index">
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number {{i + 1}}</mat-label>
+            <input matInput [formControlName]="i">
+            <button mat-icon-button matSuffix color="warn" (click)="removePhoneNumber(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="addPhoneNumber()" type="button">Add Phone Number</button>
       </div>
 
       <button mat-raised-button color="primary" type="submit" [disabled]="itemForm.invalid">Save</button>

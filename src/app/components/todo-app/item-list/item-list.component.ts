@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Item } from '../model/item.model';
+import { ItemService } from 'src/app/services/item.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-item-list',
@@ -11,22 +13,31 @@ export class ItemListComponent implements OnInit {
   items: Item[] = [];
   filteredItems: Item[] = [];
   searchValue: string = '';
-  displayedColumns: string[] = ['name', 'dob', 'gender', 'bookmarked', 'actions'];
+  displayedColumns: string[] = ['name', 'dob', 'gender', 'email', 'phoneNumbers', 'bookmarked', 'actions'];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private itemService: ItemService, private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
-    this.items = JSON.parse(localStorage.getItem('items') || '[]');
-    this.filteredItems = [...this.items];
+    this.loadItems();
+  }
+
+  loadItems(): void {
+    this.itemService.getAllItems().subscribe((items) => {
+      this.items = items;
+      this.filteredItems = [...this.items];
+    });
   }
 
   applyFilter(event: Event): void {
-    const filterValue = (event.target as HTMLInputElement).value.toLowerCase().trim();
-    this.filteredItems = this.items.filter(item => {
-      const nameMatch = item.name.toLowerCase().includes(filterValue);
-      const dateMatch = new Date(item.dateOfBirth).toLocaleDateString().toLowerCase().includes(filterValue);
-      return nameMatch || dateMatch;
-    });
+    const filterValue = this.searchValue.toLowerCase().trim();
+    if (filterValue) {
+      this.itemService.searchItems(filterValue).subscribe((filteredItems) => {
+        this.filteredItems = filteredItems;
+      });
+    } else {
+      this.clearSearch();
+    }
   }
 
   clearSearch(): void {
@@ -34,14 +45,12 @@ export class ItemListComponent implements OnInit {
     this.filteredItems = this.items;
   }
 
-
-  toggleBookmark(item: Item): void {
-    item.bookmarked = !item.bookmarked;
-    this.updateLocalStorage();
-  }
-
-  updateLocalStorage(): void {
-    localStorage.setItem('items', JSON.stringify(this.items));
+  toggleBookmarked(item: Item): void {
+    const updatedBookmarkStatus = !item.bookmarked;
+    this.itemService.toggleBookmark(item.id, updatedBookmarkStatus).subscribe(() => {
+      item.bookmarked = updatedBookmarkStatus;
+            this.loadItems();
+    });
   }
 
   onEdit(id: string): void {
@@ -49,8 +58,15 @@ export class ItemListComponent implements OnInit {
   }
 
   onDelete(id: string): void {
-    this.items = this.items.filter(item => item.id !== id);
-    this.updateLocalStorage();
-    this.applyFilter({ target: { value: '' } } as any);
+    this.itemService.deleteItem(id).subscribe(() => {
+      this.showSnackBar('Item deleted successfully!', 'Close');
+      this.loadItems();
+    });
+  }
+
+  private showSnackBar(message: string, action: string): void {
+    this.snackBar.open(message, action, {
+      duration: 3000
+    });
   }
 }

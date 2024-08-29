@@ -42,7 +42,7 @@ mat-toolbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 40px);
   padding: 16px;
   background-color: #f5f5f5;
 }

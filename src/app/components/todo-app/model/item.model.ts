@@ -3,5 +3,7 @@ export interface Item {
   name: string;
   dateOfBirth: Date;
   gender: string;
+  email: string;
+  phoneNumbers: any;
   bookmarked: boolean;
 }
